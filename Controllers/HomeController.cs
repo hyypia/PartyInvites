@@ -25,10 +25,22 @@ namespace PartyInvites.Controllers
         }
 
         [HttpPost]
-        public ViewResult RsvpForm(GuestResponce guestResponce)
+        public ViewResult RsvpForm(GuestResponse guestResponse)
         {
-            Repository.AddResponce(guestResponce);
-            return View("Thanks", guestResponce);
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
         }
     }
 }

@@ -8,12 +8,12 @@ namespace PartyInvites.Models
 {
     public class Repository
     {
-        private static List<GuestResponce> responces = new List<GuestResponce>();
-        public static IEnumerable<GuestResponce> Responces { get { return responces; } }
+        private static List<GuestResponse> responses = new List<GuestResponse>();
+        public static IEnumerable<GuestResponse> Responses { get { return responses; } }
 
-        public static void AddResponce(GuestResponce responce)
+        public static void AddResponse(GuestResponse response)
         {
-            responces.Add(responce);
+            responses.Add(response);
         }
     }
 }
